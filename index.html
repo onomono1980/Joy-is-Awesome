@@ -5,50 +5,40 @@
     <script>
       // Array of reasons
       const reasons = [
-        "You always brighten up my day.",
-        "Your laughter is contagious.",
-        "You’re incredibly thoughtful and kind.",
-        "Your creativity inspires me.",
-        "You’re the best listener ever!",
-        "You make everything more fun.",
-        "You have the biggest heart of anyone I know.",
-        "You inspire everyone around you.",
-        "You have a way of making people feel seen and loved.",
-        "Your energy is pure sunshine.",
-        "You’re one of the most talented people I know."
+        "You brighten up every room you enter.",
+        "Your laughter is contagious and joyful.",
+        "Your kindness inspires everyone around you.",
+        "You have the most beautiful, creative ideas.",
+        "You make everyone feel seen and appreciated.",
+        "You’re strong, compassionate, and unique.",
+        "The world is better because you’re in it."
       ];
 
-      // Function to show a random reason
+      // Function to display a random reason
       function showRandomReason() {
         const randomIndex = Math.floor(Math.random() * reasons.length);
-        document.getElementById("reason").innerText = reasons[randomIndex];
+        document.getElementById("reason-text").innerText = reasons[randomIndex];
+        document.getElementById("reason-container").style.display = "block";
       }
     </script>
   </head>
   <body style="font-family:sans-serif; text-align:center; padding:50px;">
-    <!-- Title Page -->
-    <div id="title-page">
-      <h1 style="font-size:36px; color:#444;">Reasons Why Joy Is Awesome</h1>
-      <p style="font-size:20px; color:#666;">Click the button below to see why you’re so amazing!</p>
-      <button style="padding:15px 25px; font-size:18px; background-color:#008CBA; color:white; border:none; border-radius:5px; cursor:pointer;" 
-              onclick="startShowingReasons()">Click Here</button>
-    </div>
+    <h1 style="color:#444; font-size:36px;">Reasons Why Joy Is Awesome</h1>
+    
+    <!-- Clickable Jar Image -->
+    <img src="JoyJar.png" 
+         alt="Joy is Awesome Jar" 
+         style="width:300px; height:auto; cursor:pointer;" 
+         onclick="showRandomReason()">
 
-    <!-- Reasons Page -->
-    <div id="reasons-page" style="display:none;">
-      <h1 style="color: #444;">Reasons Why Joy Is Awesome</h1>
-      <p id="reason" style="font-size:24px; color: #333;">Loading...</p>
-      <button style="padding:10px 20px; font-size:18px; background-color:#008CBA; color:white; border:none; border-radius:5px; cursor:pointer;" 
-              onclick="showRandomReason()">Show Me Another!</button>
+    <!-- Unfolded Paper with Random Reason -->
+    <div id="reason-container" style="display:none; margin-top:30px; position:relative; text-align:center;">
+      <img src="JoyPaper.png" 
+           alt="Unfolded Paper" 
+           style="width:400px; height:auto;">
+      <p id="reason-text" 
+         style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); font-size:20px; color:#333; width:70%; line-height:1.5;">
+      </p>
     </div>
-
-    <script>
-      // Function to transition from title page to reasons page
-      function startShowingReasons() {
-        document.getElementById("title-page").style.display = "none";
-        document.getElementById("reasons-page").style.display = "block";
-        showRandomReason();
-      }
-    </script>
   </body>
 </html>
