@@ -25,9 +25,9 @@
       body {
         font-family: sans-serif;
         text-align: center;
-        padding: 50px;
         margin: 0;
-        background-color: #f8f8f8;
+        padding: 50px;
+        background-color: #ffffff; /* PURE WHITE background */
       }
 
       h1 {
@@ -38,7 +38,8 @@
 
       /* Jar image styling */
       #jar-image {
-        width: 300px;
+        width: 80%; /* Makes the jar as wide as the paper */
+        max-width: 900px; /* Prevents it from getting too large */
         height: auto;
         cursor: pointer;
         margin-bottom: 20px;
@@ -49,8 +50,8 @@
         display: none;
         position: relative;
         margin: 0 auto;
-        width: 80%; /* Ensures responsiveness */
-        max-width: 900px; /* Keeps the paper from being too large */
+        width: 80%;
+        max-width: 900px; /* Ensures consistency with the jar size */
       }
 
       /* Paper image styling */
