@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Reasons Why Joy Is Awesome</title>
+    <script>
+      function goToReasons() {
+        document.getElementById("title-page").style.display = "none";
+        document.getElementById("reasons-page").style.display = "block";
+        loadReason();
+      }
+
+      function loadReason() {
+        google.script.run
+          .withSuccessHandler(function(randomReason) {
+            document.getElementById("reason").innerText = randomReason;
+          })
+          .getRandomReason();
+      }
+    </script>
+  </head>
+  <body style="font-family:sans-serif; text-align:center; padding:50px;">
+    <!-- Title Page -->
+    <div id="title-page">
+      <h1 style="font-size:36px; color:#444;">Reasons Why Joy Is Awesome</h1>
+      <p style="font-size:20px; color:#666;">Click the button below to see why you’re so amazing!</p>
+      <button style="padding:15px 25px; font-size:18px; background-color:#008CBA; color:white; border:none; border-radius:5px; cursor:pointer;" 
+              onclick="goToReasons()">Click Here</button>
+    </div>
+
+    <!-- Reasons Page -->
+    <div id="reasons-page" style="display:none;">
+      <h1 style="color: #444;">Reasons Why Joy Is Awesome</h1>
+      <p id="reason" style="font-size:24px; color: #333;">Loading...</p>
+      <button style="padding:10px 20px; font-size:18px; background-color:#008CBA; color:white; border:none; border-radius:5px; cursor:pointer;" 
+              onclick="loadReason()">Show Me Another!</button>
+    </div>
