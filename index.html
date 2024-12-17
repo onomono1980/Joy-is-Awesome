@@ -3,18 +3,25 @@
   <head>
     <title>Reasons Why Joy Is Awesome</title>
     <script>
-      function goToReasons() {
-        document.getElementById("title-page").style.display = "none";
-        document.getElementById("reasons-page").style.display = "block";
-        loadReason();
-      }
+      // Array of reasons
+      const reasons = [
+        "You always brighten up my day.",
+        "Your laughter is contagious.",
+        "You’re incredibly thoughtful and kind.",
+        "Your creativity inspires me.",
+        "You’re the best listener ever!",
+        "You make everything more fun.",
+        "You have the biggest heart of anyone I know.",
+        "You inspire everyone around you.",
+        "You have a way of making people feel seen and loved.",
+        "Your energy is pure sunshine.",
+        "You’re one of the most talented people I know."
+      ];
 
-      function loadReason() {
-        google.script.run
-          .withSuccessHandler(function(randomReason) {
-            document.getElementById("reason").innerText = randomReason;
-          })
-          .getRandomReason();
+      // Function to show a random reason
+      function showRandomReason() {
+        const randomIndex = Math.floor(Math.random() * reasons.length);
+        document.getElementById("reason").innerText = reasons[randomIndex];
       }
     </script>
   </head>
@@ -24,7 +31,7 @@
       <h1 style="font-size:36px; color:#444;">Reasons Why Joy Is Awesome</h1>
       <p style="font-size:20px; color:#666;">Click the button below to see why you’re so amazing!</p>
       <button style="padding:15px 25px; font-size:18px; background-color:#008CBA; color:white; border:none; border-radius:5px; cursor:pointer;" 
-              onclick="goToReasons()">Click Here</button>
+              onclick="startShowingReasons()">Click Here</button>
     </div>
 
     <!-- Reasons Page -->
@@ -32,5 +39,16 @@
       <h1 style="color: #444;">Reasons Why Joy Is Awesome</h1>
       <p id="reason" style="font-size:24px; color: #333;">Loading...</p>
       <button style="padding:10px 20px; font-size:18px; background-color:#008CBA; color:white; border:none; border-radius:5px; cursor:pointer;" 
-              onclick="loadReason()">Show Me Another!</button>
+              onclick="showRandomReason()">Show Me Another!</button>
     </div>
+
+    <script>
+      // Function to transition from title page to reasons page
+      function startShowingReasons() {
+        document.getElementById("title-page").style.display = "none";
+        document.getElementById("reasons-page").style.display = "block";
+        showRandomReason();
+      }
+    </script>
+  </body>
+</html>
