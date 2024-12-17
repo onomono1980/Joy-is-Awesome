@@ -21,24 +21,70 @@
         document.getElementById("reason-container").style.display = "block";
       }
     </script>
-  </head>
-  <body style="font-family:sans-serif; text-align:center; padding:50px;">
-    <h1 style="color:#444; font-size:36px;">Reasons Why Joy Is Awesome</h1>
-    
-    <!-- Clickable Jar Image -->
-    <img src="JoyJar.png" 
-         alt="Joy is Awesome Jar" 
-         style="width:300px; height:auto; cursor:pointer;" 
-         onclick="showRandomReason()">
+    <style>
+      body {
+        font-family: sans-serif;
+        text-align: center;
+        padding: 50px;
+        margin: 0;
+        background-color: #f8f8f8;
+      }
 
-    <!-- Unfolded Paper with Random Reason -->
-    <div id="reason-container" style="display:none; margin-top:30px; position:relative; text-align:center;">
-      <img src="JoyPaper.png" 
-           alt="Unfolded Paper" 
-           style="width:400px; height:auto;">
-      <p id="reason-text" 
-         style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); font-size:20px; color:#333; width:70%; line-height:1.5;">
-      </p>
+      h1 {
+        color: #444;
+        font-size: 36px;
+        margin-bottom: 30px;
+      }
+
+      /* Jar image styling */
+      #jar-image {
+        width: 300px;
+        height: auto;
+        cursor: pointer;
+        margin-bottom: 20px;
+      }
+
+      /* Container for the paper and text */
+      #reason-container {
+        display: none;
+        position: relative;
+        margin: 0 auto;
+        width: 80%; /* Ensures responsiveness */
+        max-width: 900px; /* Keeps the paper from being too large */
+      }
+
+      /* Paper image styling */
+      #reason-paper {
+        width: 100%; /* Makes the paper fill the container */
+        height: auto;
+        display: block;
+      }
+
+      /* Text styling to keep it inside the paper */
+      #reason-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 85%; /* Keeps text within paper margins */
+        text-align: center;
+        font-size: 22px;
+        color: #333;
+        line-height: 1.5;
+        word-wrap: break-word; /* Ensures long text wraps neatly */
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Reasons Why Joy Is Awesome</h1>
+
+    <!-- Clickable Jar Image -->
+    <img id="jar-image" src="JoyJar.png" alt="Joy is Awesome Jar" onclick="showRandomReason()">
+
+    <!-- Paper with Random Reason -->
+    <div id="reason-container">
+      <img id="reason-paper" src="JoyPaper.png" alt="Unfolded Paper">
+      <p id="reason-text"></p>
     </div>
   </body>
 </html>
